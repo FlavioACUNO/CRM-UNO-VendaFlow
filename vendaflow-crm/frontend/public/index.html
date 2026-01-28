@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta tags essenciais -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="theme-color" content="#0ea5e9" />
+
+    <!-- Meta tags para PWA e Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="VendaFlow" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- SEO -->
+    <meta name="description" content="VendaFlow CRM - Sistema completo de gerenciamento de vendas e relacionamento com clientes" />
+    <meta name="keywords" content="CRM, vendas, gestão, clientes, negociações, prospecção" />
+    <meta name="author" content="VendaFlow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VendaFlow CRM" />
+    <meta property="og:description" content="Sistema completo de gerenciamento de vendas e relacionamento com clientes" />
+    <meta property="og:image" content="%PUBLIC_URL%/logo.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VendaFlow CRM" />
+    <meta name="twitter:description" content="Sistema completo de gerenciamento de vendas e relacionamento com clientes" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.svg" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Preconnect para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Título -->
+    <title>VendaFlow CRM - Gestão de Vendas</title>
+
+    <!-- Prevenir zoom automático no iOS em campos de input -->
+    <style>
+        @supports (-webkit-touch-callout: none) {
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <div style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    ">
+            <div>
+                <h1 style="color: #0ea5e9; margin-bottom: 1rem;">VendaFlow CRM</h1>
+                <p style="color: #64748b;">
+                    Você precisa habilitar o JavaScript no seu navegador para usar este aplicativo.
+                </p>
+            </div>
+        </div>
+    </noscript>
+
+    <div id="root"></div>
+
+    <!-- Service Worker para PWA (opcional) -->
+    <script>
+    // Registrar Service Worker para funcionalidade offline (futuro)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // Descomentar quando tiver service worker implementado
+        // navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+
+    // Prevenir comportamento padrão de pull-to-refresh em alguns navegadores móveis
+    document.body.addEventListener('touchmove', function(e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return;
+      }
+    }, { passive: true });
+    </script>
+</body>
+</html>
